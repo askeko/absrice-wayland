@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# This file runs when a DM logs you into a graphical session.
+# This file is sourced in xinitrc and will also run when you startx.
+
+xrandr --dpi 96     # set dpi
+dunst &
+unclutter &
+pipewire &
+setbg
+
+#autostart="sxhkd dunst unclutter pipewire"
+#
+#for program in $autostart; do
+#	pidof -s "$program" || setsid -f "$program"
+#done >/dev/null 2>&1

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# xinitrc runs automatically when you run startx.
+
+# I source ~/.xprofile here. .xprofile will start necessary,
+# programs when I enter my graphical environment. I start
+# my graphical environment in this file.
+
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
+dwmblocks &
+ssh-agent dwm
