@@ -18,13 +18,15 @@ alias \
 
 # Colorize commands when possible
 alias \
-	ls="exa -al --color=always --group-directories-first" \ # list
-        la="exa -a --color=always --group-directories-first" \  # all files and dirs
-        ll="exa -l --color=always --group-directories-first" \  # long format
-        lt="exa -aT --color=always --group-directories-first" \ # tree listing
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
+
+# Alias replacing ls
+alias ls="exa -al --color=always --group-directories-first" \ # list
+alias la="exa -a --color=always --group-directories-first" \  # all files and dirs
+alias ll="exa -l --color=always --group-directories-first" \  # long format
+alias lt="exa -aT --color=always --group-directories-first" \ # tree listing
 
 # Making long commands shorter
 alias \
