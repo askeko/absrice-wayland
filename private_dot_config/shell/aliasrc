@@ -20,7 +20,7 @@ alias \
 alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi"
+        cat="bat"
 
 # Alias replacing ls
 alias ls="exa -al --color=always --group-directories-first" \ # list
