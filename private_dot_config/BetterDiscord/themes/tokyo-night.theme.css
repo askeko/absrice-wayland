@@ -33,7 +33,7 @@
 @import url("https://dyzean.github.io/Tokyo-Night/addons/syntax-highlight.css");
 
 /* Username Background, get colorful background behind username on chat, works best with Monospace addon. (Enabled by default) */
-@import url("https://dyzean.github.io/Tokyo-Night/addons/username-background.css");
+/* @import url("https://dyzean.github.io/Tokyo-Night/addons/username-background.css"); */
 
 /* Mac Like Titlebar (windows only), get mac style titlebar on windows client (Enabled by default) */
 @import url("https://dyzean.github.io/Tokyo-Night/addons/mac-titlebar.css");
