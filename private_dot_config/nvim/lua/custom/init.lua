@@ -28,6 +28,10 @@ customPlugins.add(function(use)
    }
 
    use {
+      "lervag/vimtex",
+   }
+
+   use {
       "user or orgname/reponame",
       --further packer options
    }
