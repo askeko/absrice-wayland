@@ -2,6 +2,7 @@
 
 local M = {}
 
+vim.g.vimtex_view_method = 'zathura'
 -- make sure you maintain the structure of `core/default_config.lua` here,
 -- example of changing theme:
 
