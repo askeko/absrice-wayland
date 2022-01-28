@@ -43,7 +43,7 @@ alias \
   g="git" \
   trem="transmission-remote" \
   sdn="shutdown -h now" \
-  e="$EDITOR" \
+  c="code" \
   v="$EDITOR" \
   p="pacman" \
   z="zathura"
