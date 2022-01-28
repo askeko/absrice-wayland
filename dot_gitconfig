@@ -3,3 +3,5 @@
 	name = askeko
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[core]
+	editor = code --wait

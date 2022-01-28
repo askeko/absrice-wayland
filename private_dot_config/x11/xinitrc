@@ -11,5 +11,9 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
 else
 	. "$HOME/.xprofile"
 fi
+
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 dwmblocks &
 ssh-agent dwm

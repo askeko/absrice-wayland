@@ -8,6 +8,8 @@ local map = require("core.utils").map
 
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>q", ":q <CR>")
+map("n", "<leader>lv", ":VimtexView <CR>")
+map("n", "<leader>ll", ":VimtexCompile <CR>")
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
 -- Install plugins
