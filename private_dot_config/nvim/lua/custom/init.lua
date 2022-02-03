@@ -8,27 +8,20 @@ local map = require("core.utils").map
 
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>q", ":q <CR>")
+
+-- General commands --
+map("n", "<leader>rn", ":set rnu! <CR>")
+
+-- Vimtex commands
 map("n", "<leader>lv", ":VimtexView <CR>")
 map("n", "<leader>ll", ":VimtexCompile <CR>")
+map("n", "<leader>lc", ":VimtexClean <CR>")
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
 -- Install plugins
 local customPlugins = require "core.customPlugins"
 
 customPlugins.add(function(use)
-   use {
-      "max397574/better-escape.nvim",
-      event = "InsertEnter",
-   }
-
-   use {
-      "SirVer/ultisnips",
-   }
-
-   use {
-      "honza/vim-snippets",
-   }
-
    use {
       "lervag/vimtex",
    }
