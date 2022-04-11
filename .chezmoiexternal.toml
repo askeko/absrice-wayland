@@ -1,5 +1,0 @@
-[".config/nvim"]
-    type = "archive"
-    url = "https://github.com/NvChad/NvChad/archive/main.tar.gz"
-    exact = true
-    stripComponents = 1
