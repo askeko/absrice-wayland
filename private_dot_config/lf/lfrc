@@ -81,8 +81,8 @@ cmd fzf_jump ${{
     res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
     if [ -d "$res" ]; then
         cmd="cd"
-    else 
-        cmd="select"                                                       
+    else
+        cmd="select"
     fi
     lf -remote "send $id $cmd \"$res\""
 }}
@@ -112,6 +112,7 @@ map ch chmod
 map T trash
 map te clear_trash
 map tre restore_trash
+map o open
 
 map b $setbg $f
 
