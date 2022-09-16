@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "'JetBrains Mono Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'JetBrainsMono Nerd', 'Material Design Icons', 'JetBrains Mono Medium Nerd Font', 'monospace', monospace, 'Droid Sans Fallback'",
     "vim.enableNeovim": true,
     "workbench.iconTheme": "material-icon-theme",
     "latex-workshop.latex.autoClean.run": "onBuilt",
@@ -10,6 +10,7 @@
     "diffEditor.codeLens": true,
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Tokyo Night",
-    "editor.lineNumbers": "relative",
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "editor.fontLigatures": false,
+    "sync.gist": "349f5949c5728ea1b96f8cad93b19449"
 }

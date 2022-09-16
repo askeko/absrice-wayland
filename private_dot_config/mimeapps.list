@@ -14,3 +14,6 @@ image/jpeg=img.desktop;
 image/gif=img.desktop;
 application/rss+xml=rss.desktop
 video/x-matroska=video.desktop
+x-scheme-handler/msteams=teams-for-linux.desktop
+x-scheme-handler/webcal=brave-browser.desktop
+x-scheme-handler/mailto=brave-browser.desktop
