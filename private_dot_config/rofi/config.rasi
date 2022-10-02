@@ -15,7 +15,7 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "tokyonight"
+@theme "gruvbox-dark"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
