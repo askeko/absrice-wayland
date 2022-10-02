@@ -16,7 +16,7 @@ export TERMINAL="kitty"
 export BROWSER="brave"
 
 # bat (cat) coloring:
-export BAT_THEME="Enky-TokyoNight"
+export BAT_THEME="gruvbox-dark"
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"
