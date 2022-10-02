@@ -9,8 +9,9 @@
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "diffEditor.codeLens": true,
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "editor.wordWrap": "on",
     "editor.fontLigatures": false,
-    "sync.gist": "349f5949c5728ea1b96f8cad93b19449"
+    "sync.gist": "349f5949c5728ea1b96f8cad93b19449",
+    "gruvboxMaterial.darkContrast": "hard"
 }
