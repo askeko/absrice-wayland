@@ -33,3 +33,5 @@ set completion-highlight-bg        "#89b482"
 set completion-highlight-fg        "#6f8faf"
 set recolor-lightcolor             "#1e2122"
 set recolor-darkcolor              "#c7b89d"
+
+include catppuccin-mocha
