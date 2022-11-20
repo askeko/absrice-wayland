@@ -6,8 +6,8 @@
 xrandr --dpi 96     # set dpi
 dunst &
 unclutter &
-setbg &
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
+setbg
+#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 
 #autostart="sxhkd dunst unclutter pipewire"
 #
