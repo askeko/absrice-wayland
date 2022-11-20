@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Displays number of unread news items and an loading icon if updating.
 # When clicked, brings up `newsboat`.
@@ -14,4 +14,6 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
- cat /tmp/newsupdate 2>/dev/null || echo "$(newsboat -x print-unread | awk '{ if($1>0) print "󱀃" $1}')$(cat "${XDG_CONFIG_HOME:-$HOME/.config}"/newsboat/.update 2>/dev/null)"
+news=$(newsboat -x print-unread | awk '{print $1}')
+icon="󱀃"
+printf "^d^^c#1e1e2e^^b#a6e3a1^ $icon ^b#b7e8b3^ $news ^d^"
