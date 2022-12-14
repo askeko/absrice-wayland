@@ -14,7 +14,8 @@ alias \
   mv="mv -iv" \
   rm="rm -vI" \
   bc="bc -ql" \
-  mkd="mkdir -pv"
+  mkd="mkdir -pv" \
+  xevs="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\\n\", \$5, \$8 }'"
 
 # Colorize commands when possible
 alias \
