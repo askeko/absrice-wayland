@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# bspwm calc scratchpad
+
+winclass="$(xdotool search --class spad_calc)";
+if [ -z "$winclass" ]; then
+	kitty --class spad_calc -e "bc" "-lq" &
+else
+	if [ ! -f /tmp/spad_calc ]; then
+		touch /tmp/spad_calc && xdo hide "$winclass"
+	elif [ -f /tmp/spad_calc ]; then
+		rm /tmp/spad_calc && xdo show "$winclass"
+	fi
+fi
+
