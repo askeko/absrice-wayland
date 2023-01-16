@@ -2,8 +2,12 @@
 	email = askeklitgaard@gmail.com
 	name = askeko
 [credential "https://github.com"]
+	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [core]
 	editor = code --wait
 [init]
 	defaultBranch = main
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
