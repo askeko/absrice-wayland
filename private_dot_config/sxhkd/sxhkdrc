@@ -1,0 +1,197 @@
+###################
+### KEYBINDINGS ###
+###################
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+## Extra laptio keybinds ##
+XF86AudioMute
+	pamixer -t
+
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 5
+
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 5
+
+XF86AudioMicMute
+	pamixer --default-source -t
+
+XF86MonBrightnessDown
+	sudo xbacklight -dec 10
+
+XF86MonBrightnessUp
+	sudo xbacklight -inc 10
+
+XF86Calculator
+	spad_calc
+
+###########################
+
+Print
+	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+
+super + Print
+	maimp
+
+super + onehalf
+super + shift + onehalf
+
+# focus or send window to the given desktop
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
+
+# preselect the ratio of new window
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+#super + 0
+#super + shift + 0
+
+super + plus
+	pamixer --allow-boost -i 5
+
+super + shift + plus
+	pamixer --allow-boost -i 15
+
+#super + dead_acute
+#super + shift + dead_acute
+
+super + q
+	bspc node -c
+
+super + shift + q
+	pwrmenu
+
+super + w
+	$BROWSER
+
+super + shift + w
+	$TERMINAL -e nmtui
+
+super + e
+super + shift + e
+
+super + r
+	$TERMINAL -e lfub
+super + shift + r
+	$TERMINAL -e htop
+
+super + t
+super + shift + t
+super + y
+super + shift + y
+super + u
+super + shift + u
+super + i
+super + shift + i
+super + o
+super + shift + o
+super + p
+super + shift + p
+super + aring
+super + shift + aring
+super + dead_diaeresis
+super + shift + dead_diaeresis
+
+super + a
+	bspc config window_gap 10
+super + shift + a
+	bspc config window_gap 0
+
+super + s
+super + shift + s
+
+super + d
+	rofi -show drun
+
+super + shift + d
+
+super + f
+	bspc node -t \~fullscreen
+
+super + shift + f
+super + g
+super + shift + g
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + ae
+super + shift + ae
+super + oslash
+super + shift + oslash
+super + apostrophe
+
+super + shift + apostrophe
+	spad_calc bc -lq
+
+super + Return
+	$TERMINAL
+
+super + shift + Return
+	scpad
+
+# change inner gaps
+super + {_, shift +} less
+    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 10 )), \
+    [ $(bspc config -d focused window_gap) -ge 10 ] && \
+    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 10 )) }
+
+super + z
+super + shift + z
+super + x
+super + shift + x
+super + c
+super + shift + c
+super + v
+super + shift + v
+super + b
+super + shift + b
+
+super + n
+	$TERMINAL -e newsboat
+
+super + shift + n
+
+super + m
+	$TERMINAL -e ncmpcpp
+
+super + shift + m
+	pamixer -t
+
+super + comma
+super + shift + comma
+super + period
+super + shift + period
+
+super + minus
+	pamixer --allow-boost -d 5
+
+super + shift + minus
+	pamixer --allow-boost -d 15
+
+super + space
+super + shift + space
+
+# Smart resize, will grow or shrink depending on location.
+# Will always grow for floating nodes.
+super + {Left,Down,Up,Right}
+n=25; \
+	{ d1=left;   d2=right;  dx=-$n; dy=0;   \
+	, d1=bottom; d2=top;    dx=0;   dy=$n;  \
+	, d1=top;    d2=bottom; dx=0;   dy=-$n; \
+	, d1=right;  d2=left;   dx=$n;  dy=0;   \
+	} \
+	bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+
+# move a floating window
+super + shift + {Left,Down,Up,Right}
+	bspc node -v {-25 0,0 25,0 -25,25 0}
