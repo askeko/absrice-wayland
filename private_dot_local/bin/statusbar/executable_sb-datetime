@@ -37,4 +37,4 @@ case "$clock" in
 esac
 
 date=$(date '+%a | %H:%M')
-printf "^d^^c#1e1e2e^^b#f38ba8^ $icon ^b#f6adc2^ $date ^d^"
+printf "$icon $date"

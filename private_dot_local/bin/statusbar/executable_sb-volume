@@ -26,4 +26,4 @@ else
         echo 󰸈 && exit
 fi
 
-echo "^d^^c#1e1e2e^^b#89b4fa^ $icon ^b#accafb^ $vol% ^d^"
+echo "$icon $vol%"

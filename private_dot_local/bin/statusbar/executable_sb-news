@@ -16,4 +16,4 @@ esac
 
 news=$(newsboat -x print-unread | awk '{print $1}')
 icon="󱀃"
-printf "^d^^c#1e1e2e^^b#a6e3a1^ $icon ^b#b7e8b3^ $news ^d^"
+printf "$icon $news"

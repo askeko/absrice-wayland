@@ -13,7 +13,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="lvim"
 export TERMINAL="kitty"
-export BROWSER="brave"
+export BROWSER="firefox"
 
 # bat (cat) coloring:
 export BAT_THEME="Catppuccin-mocha"
