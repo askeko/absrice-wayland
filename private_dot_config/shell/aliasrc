@@ -47,7 +47,8 @@ alias \
   c="code" \
   v="$EDITOR" \
   p="pacman" \
-  z="zathura" 
+  z="zathura" \
+  evi="evince"
 
 # script alias
 alias \
