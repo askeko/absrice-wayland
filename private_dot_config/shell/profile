@@ -12,12 +12,17 @@ export PATH="$PATH:${$(find ~/.local/bin/scripts -type d -printf %p:)%%:}"
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="lvim"
+export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
 # bat (cat) coloring:
 export BAT_THEME="Catppuccin-mocha"
+
+# node version manager
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"

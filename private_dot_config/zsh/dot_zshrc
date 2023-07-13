@@ -54,5 +54,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Load Starship prompt
 eval "$(starship init zsh)"
 
+# Source node version manager
+source /usr/share/nvm/init-nvm.sh
+
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
