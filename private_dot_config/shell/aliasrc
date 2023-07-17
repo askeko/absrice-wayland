@@ -13,9 +13,7 @@ alias \
   cp="cp -iv" \
   mv="mv -iv" \
   rm="rm -vI" \
-  bc="bc -ql" \
   mkd="mkdir -pv" \
-  xevs="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\\n\", \$5, \$8 }'"
 
 # Colorize commands when possible
 alias \
@@ -42,14 +40,8 @@ alias lt="exa -aT --color=always --group-directories-first" \ # tree listing
 alias \
   ka="killall" \
   g="git" \
-  trem="transmission-remote" \
   sdn="shutdown -h now" \
   c="code" \
   v="$EDITOR" \
   p="pacman" \
-  z="zathura" \
   evi="evince"
-
-# script alias
-alias \
-lf="lfub" \

@@ -124,15 +124,9 @@ map I push A<c-a> # at the very beginning
 map i push A<a-b><a-b><a-f> # before extension
 map a push A<a-b> # after extension
 map B bulkrename
-map b $setbg $f
 
 map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
-
-map Y $printf "%s" "$fx" | xclip -selection clipboard
-
-# Source Bookmarks
-source "~/.config/lf/shortcutrc"

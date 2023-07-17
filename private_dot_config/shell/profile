@@ -34,7 +34,6 @@ export LESSHISTFILE="-"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/jupyter"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line may break some DM's
 export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME:-$HOME/.config}/node_repl_history"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
