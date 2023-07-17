@@ -201,6 +201,3 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-
-# Start graphical server if not already running, on user login from tty1.
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
