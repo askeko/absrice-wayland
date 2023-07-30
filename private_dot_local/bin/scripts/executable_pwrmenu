@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case "$(printf "󰌾 lock\n󰗽 leave Hyprland\n󰁯 reboot\n󰐥 shutdown" | wofi -d 'Action: ')" in
+case "$(printf "󰌾 lock\n󰗽 leave Hyprland\n󰁯 reboot\n󰐥 shutdown" | rofi -dmenu 'Action: ')" in
 	'󰌾 lock') swaylock ;;
 	'󰗽 leave Hyprland') kill -TERM "$(pgrep -u "$USER" "\bHyprland$")" ;;
 	'󰁯 reboot') systemctl reboot -i ;;

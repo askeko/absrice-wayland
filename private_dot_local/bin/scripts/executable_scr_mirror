@@ -1,5 +1,3 @@
 #!/bin/sh
-rm ~/.config/hypr/monitor.conf
-ln -s ~/.config/hypr/monitor/scr_mirror.conf ~/.config/hypr/monitor.conf
-rm ~/.config/hypr/keyboard_layout.conf
-ln -s ~/.config/hypr/keyboard/key_dvorak.conf ~/.config/hypr/keyboard_layout.conf
+ln -sf ~/.config/hypr/monitor/scr_mirror.conf ~/.config/hypr/monitor.conf
+ln -sf ~/.config/hypr/keyboard/key_dvorak.conf ~/.config/hypr/keyboard_layout.conf

@@ -44,4 +44,5 @@ alias \
   c="code" \
   v="$EDITOR" \
   p="pacman" \
-  evi="evince"
+  evi="evince" \
+  img="vimiv"
