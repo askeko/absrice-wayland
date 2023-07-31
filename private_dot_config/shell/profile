@@ -33,10 +33,6 @@ export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME:-$HOME/.config}/node_repl_history"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
 
-# node version manager
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 # This is the list for lf icons:
 export LF_ICONS="\
 di=:\
