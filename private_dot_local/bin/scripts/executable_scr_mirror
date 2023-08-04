@@ -1,3 +1,4 @@
 #!/bin/sh
 ln -sf ~/.config/hypr/monitor/scr_mirror.conf ~/.config/hypr/monitor.conf
 ln -sf ~/.config/hypr/keyboard/key_dvorak.conf ~/.config/hypr/keyboard_layout.conf
+hyprctl reload

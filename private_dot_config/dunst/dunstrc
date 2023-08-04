@@ -214,7 +214,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/brave
+    browser = /usr/bin/firefox
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -288,23 +288,27 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
+# TokyoNight colors for dunst
+# For more configuraion options see https://github.com/dunst-project/dunst/blob/master/dunstrc
 
 [urgency_low]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
+    background = "#16161e"
+    foreground = "#c0caf5"
+    frame_color = "#c0caf5"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
-    
+
 [urgency_normal]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
+    background = "#1a1b26"
+    foreground = "#c0caf5"
+    frame_color = "#c0caf5"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
-    
+
 [urgency_critical]
-    background = "#1E1E2E"
-    foreground = "#CDD6F4"
-    frame_color = "#FAB387"
+    background = "#292e42"
+    foreground = "#db4b4b"
+    frame_color = "#db4b4b"
     timeout = 10
     default_icon = ~/.config/dunst/critical.png
 

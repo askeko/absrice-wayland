@@ -1,3 +1,4 @@
 #!/bin/sh
 ln -sf ~/.config/hypr/monitor/scr_home.conf ~/.config/hypr/monitor.conf
 ln -sf ~/.config/hypr/keyboard/key_qwerty.conf ~/.config/hypr/keyboard_layout.conf
+hyprctl reload

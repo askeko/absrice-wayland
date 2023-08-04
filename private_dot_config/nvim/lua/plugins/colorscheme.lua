@@ -1,18 +1,34 @@
 return {
   {
-    'rose-pine/neovim',
-    lazy = true,
-    name = 'rose-pine',
+    "catppuccin/nvim",
+    lazy = false,
     priority = 1000,
   },
 
   {
-    "catppuccin/nvim",
+    "olimorris/onedarkpro.nvim",
     lazy = false,
-    name = "catppuccin",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("catppuccin")
+  },
+
+  {
+    "neanias/everforest-nvim",
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
+    "RRethy/nvim-base16",
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.cmd.colorscheme "tokyonight"
     end
   },
 }
