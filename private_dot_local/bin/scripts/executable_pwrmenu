@@ -1,9 +1,9 @@
 #!/bin/sh
 
-case "$(printf "󰌾 lock\n󰗽 leave Hyprland\n󰁯 reboot\n󰐥 shutdown" | rofi -dmenu 'Action: ')" in
-	'󰌾 lock') swaylock ;;
-	'󰗽 leave Hyprland') kill -TERM "$(pgrep -u "$USER" "\bHyprland$")" ;;
-	'󰁯 reboot') systemctl reboot -i ;;
-	'󰐥 shutdown') systemctl poweroff -i ;;
+case "$(printf "󰌾  Lock\n󰗽  Logout\n󰁯  Reboot\n󰐥  Shutdown" | rofi -dmenu 'Action: ')" in
+	'󰌾  Lock') swaylock ;;
+	'󰗽  Logout') swaymsg exit ;;
+	'󰁯  Reboot') systemctl reboot -i ;;
+	'󰐥  Shutdown') systemctl poweroff -i ;;
 	*) exit 1 ;;
 esac

@@ -33,6 +33,10 @@ export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME:-$HOME/.config}/node_repl_history"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
 
+# Set sway env values
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=sway
+
 # This is the list for lf icons:
 export LF_ICONS="\
 di=:\
@@ -195,7 +199,5 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-
-if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  Hyprland
-fi
+# If running from tty1 start sway
+[ "$(tty)" = "/dev/tty1" ] && exec sway
