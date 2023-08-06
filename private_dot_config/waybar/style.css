@@ -17,7 +17,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 2px;
     background-color: transparent;
     color: @foreground;
 }
@@ -29,7 +29,7 @@ window#waybar.hidden {
 
 #workspaces button.focused {
     background-color: transparent;
-    box-shadow: inset 0 -3px @background;
+    box-shadow: inset 0 -3px @blue;
     color: @purple;
 }
 
@@ -44,7 +44,7 @@ window#waybar.hidden {
 }
 
 #workspaces {
-    margin: 0 4px;
+    margin: 0 2px;
 }
 
 #clock,
