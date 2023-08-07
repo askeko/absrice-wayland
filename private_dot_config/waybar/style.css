@@ -5,7 +5,7 @@
     border-radius: 0;
     font-family: FiraCode Nerd Font Mono;
     font-size: 14px;
-    min-height: 26px;
+    min-height: 20px;
 }
 
 window#waybar {
@@ -16,35 +16,24 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#workspaces {
+  padding: 0 6px;
+}
+
 #workspaces button {
-    padding: 0 2px;
+    padding: 0 3px;
     background-color: transparent;
     color: @foreground;
 }
 
-#workspaces button:hover {
-    background: transparent;
-    color: @yellow;
-}
-
 #workspaces button.focused {
     background-color: transparent;
-    box-shadow: inset 0 -3px @blue;
-    color: @purple;
+    color: @orange;
 }
 
 #workspaces button.urgent {
     background-color: transparent;
     color: @red;
-}
-
-#workspaces button.active {
-    background-color: transparent;
-    color: @blue;
-}
-
-#workspaces {
-    margin: 0 2px;
 }
 
 #clock,
@@ -57,24 +46,11 @@ window#waybar.hidden {
 #wireplumber,
 #custom-media,
 #tray {
-    padding: 0 10px;
+    padding: 2 10px;
     border-radius: 30px;
     color: @background;
 }
 
-#workspaces {
-    margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
 
 #clock {
     background-color: @cyan;
