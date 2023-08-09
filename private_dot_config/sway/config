@@ -22,7 +22,7 @@
 ##################################
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-    output * bg ~/Pictures/Wallpapers/firefox_2560x1440.jpg fill
+    output * bg ~/Pictures/Wallpapers/before-the-calm_2560x1440.jpg fill
 
 # Example configuration:
 #

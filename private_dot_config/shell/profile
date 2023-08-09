@@ -37,6 +37,9 @@ export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=sway
 
+# qt theme env value
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 # This is the list for lf icons:
 export LF_ICONS="\
 di=:\
