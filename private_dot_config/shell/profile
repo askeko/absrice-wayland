@@ -33,9 +33,9 @@ export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME:-$HOME/.config}/node_repl_history"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
 
-# Set sway env values
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_TYPE=sway
+# Set hyprland env values
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=Hyprland
 
 # qt theme env value
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -202,5 +202,5 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-# If running from tty1 start sway
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+# If running from tty1 start hyprland
+[ "$(tty)" = "/dev/tty1" ] && exec Hyprland
