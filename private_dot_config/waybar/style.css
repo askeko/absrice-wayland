@@ -17,20 +17,37 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  padding: 0 6px;
+    padding: 2px 10px;
+    border-radius: 30px;
+    background-color: #24283b;
 }
 
 #workspaces button {
     min-width: 20px;
     padding: 0 3px;
-    background-color: transparent;
+    color: @green;
+}
+
+#workspaces button.persistent {
     color: @foreground;
 }
 
-#workspaces button.focused {
-    background-color: transparent;
-    color: @orange;
+#workspaces button.empty {
+    color: @foreground;
 }
+
+#workspaces button.visible {
+    color: @blue;
+}
+
+#workspaces button.active {
+    color: @green;
+}
+
+/* #workspaces button.focused { */
+/*     background-color: transparent; */
+/*     color: @orange; */
+/* } */
 
 #workspaces button.urgent {
     background-color: transparent;

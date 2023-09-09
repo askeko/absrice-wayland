@@ -40,6 +40,11 @@ export XDG_SESSION_TYPE=Hyprland
 # qt theme env value
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # This is the list for lf icons:
 export LF_ICONS="\
 di=:\
