@@ -37,20 +37,18 @@ window#waybar.hidden {
 }
 
 #workspaces button.visible {
-    color: @blue;
+    color: @yellow;
 }
 
 #workspaces button.active {
-    color: @green;
+    color: @blue;
 }
 
 /* #workspaces button.focused { */
-/*     background-color: transparent; */
 /*     color: @orange; */
 /* } */
 
 #workspaces button.urgent {
-    background-color: transparent;
     color: @red;
 }
 
@@ -75,7 +73,7 @@ window#waybar.hidden {
 }
 
 #battery {
-    background-color: @magenta;
+    background-color: @green;
 }
 
 #battery.charging, #battery.plugged {
@@ -105,7 +103,7 @@ label:focus {
 }
 
 #cpu {
-    background-color: @green;
+    background-color: @magenta;
 }
 
 #memory {
