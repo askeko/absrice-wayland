@@ -90,7 +90,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#292e42"
+    frame_color = "#7aa2f7"
 
     # Define a color for the separator.
     # possible values are:
@@ -214,7 +214,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox
+    browser = /usr/bin/brave
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -289,18 +289,15 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-# TokyoNight colors for dunst
-# For more configuraion options see https://github.com/dunst-project/dunst/blob/master/dunstrc
-
 [urgency_low]
-    background = "#1f2335"
+    background = "#16161e"
     foreground = "#c0caf5"
     frame_color = "#c0caf5"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
 
 [urgency_normal]
-    background = "#24283b"
+    background = "#1a1b26"
     foreground = "#c0caf5"
     frame_color = "#c0caf5"
     timeout = 5
@@ -434,3 +431,4 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+

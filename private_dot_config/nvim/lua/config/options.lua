@@ -8,3 +8,5 @@ opt.colorcolumn = "80" -- Add visual bar to preferred column length
 opt.scrolloff = 8 -- Always keep 8 lines visible when scrolling
 opt.shiftwidth = 4 -- Size of indents
 opt.tabstop = 4 -- number of spaces tabs count for
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- directory for the undodir
+opt.undofile = true -- save undo history
