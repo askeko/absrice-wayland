@@ -13,7 +13,7 @@ unsetopt PROMPT_SP
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="wezterm"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 
 # bat (cat) coloring:
