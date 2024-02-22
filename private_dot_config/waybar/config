@@ -33,15 +33,15 @@
         "format": "<span size='14pt'>{icon}</span>",
         "format-icons": {
             "1": "󰆍",
-            "2": "󰈹",
-            "3": "󰨞",
-            "4": "󱗖",
+            "2": "󰨞",
+            "3": "󱗖",
+            "4": "󰈹",
             "5": "󰙯",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10",
+            "6": "󰣇",
+            "7": "󰣇",
+            "8": "󰣇",
+            "9": "󰣇",
+            "10": "󰣇",
             "urgent": "",
             "default": "󰣇"
         },
@@ -108,6 +108,7 @@
     "wireplumber": {
         "format": "{volume}% <span size='12pt'>{icon}</span>",
         "format-muted": "<span size='12pt'>󰸈</span>",
+        "max-volume": 120,
         "on-click": "helvum",
         "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
