@@ -1,22 +1,5 @@
 @import "default"
 
-configuration{
-    modi: "run,drun,window";
-    lines: 5;
-    font: "FiraCode Nerd Font Mono 14";
-    show-icons: true;
-    icon-theme: "Material Design";
-    terminal: "kitty";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-drun: " 󰀻  Apps ";
-    display-run: " 󱓞  Run ";
-    display-window: " 󱂬  window";
-    sidebar-mode: true;
-}
-
 * {
 	bg: #191724;
 	cur: #1f1d2e;
@@ -41,11 +24,6 @@ configuration{
 	selected-active-background: @active-background;
 	separatorcolor: @active-background;
 	bordercolor: @ora;
-}
-
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
 }
 
 #window {

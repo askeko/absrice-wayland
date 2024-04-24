@@ -14,10 +14,10 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="microsoft-edge-stable"
+export BROWSER="firefox"
 
 # bat (cat) coloring:
-export BAT_THEME="Enky-TokyoNight"
+export BAT_THEME="Rose-pine"
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"

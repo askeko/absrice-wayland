@@ -1,55 +1,51 @@
-@import "themes/tokyonight.css";
+@import "themes/rose-pine.css";
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: FiraCode Nerd Font Mono;
-    font-size: 14px;
-    min-height: 20px;
+  border: none;
+  border-radius: 0;
+  font-family: FiraCode Nerd Font Mono;
+  font-size: 12px;
+  min-height: 12px;
 }
 
 window#waybar {
-    background: transparent;
+  background: transparent;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 #workspaces {
-    padding: 2px 10px;
-    border-radius: 30px;
-    background-color: #24283b;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background-color: @base;
 }
 
 #workspaces button {
-    min-width: 20px;
-    padding: 0 3px;
-    color: @green;
+  min-width: 20px;
+  padding: 0 3px;
+  color: @pine;
 }
 
 #workspaces button.persistent {
-    color: @foreground;
+  color: @text;
 }
 
 #workspaces button.empty {
-    color: @foreground;
+  color: @text;
 }
 
 #workspaces button.visible {
-    color: @yellow;
+  color: @gold;
 }
 
 #workspaces button.active {
-    color: @blue;
+  color: @rose;
 }
 
-/* #workspaces button.focused { */
-/*     color: @orange; */
-/* } */
-
 #workspaces button.urgent {
-    color: @red;
+  color: @love;
 }
 
 #clock,
@@ -61,97 +57,98 @@ window#waybar.hidden {
 #network,
 #wireplumber,
 #custom-media,
+#bluetooth,
 #tray {
-    padding: 2px 10px;
-    border-radius: 30px;
-    color: @background;
+  padding: 2px 10px;
+  border-radius: 20px;
+  color: @base;
 }
 
-
 #clock {
-    background-color: @cyan;
+  background-color: @rose;
 }
 
 #battery {
-    background-color: @green;
+  background-color: @pine;
 }
 
-#battery.charging, #battery.plugged {
-    background-color: @yellow;
-    color: @background;
+#battery.charging,
+#battery.plugged {
+  background-color: @gold;
+  color: @base;
 }
 
 @keyframes blink {
-    to {
-        background-color: @foreground;
-        color: @background;
-    }
+  to {
+    background-color: @text;
+    color: @base;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red;
-    color: @background;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background-color: @love;
+  color: @base;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-    background-color: @background;
-}
-
-#cpu {
-    background-color: @magenta;
-}
-
-#memory {
-    background-color: @yellow;
+  background-color: @base;
 }
 
 #backlight {
-    background-color: @purple;
-}
-
-#network {
-    background-color: @teal;
-}
-
-#network.disconnected {
-    background-color: @red;
-}
-
-#wireplumber {
-    background-color: @blue;
-}
-
-#wireplumber.muted {
-    background-color: @red;
+  background-color: @foam;
 }
 
 #temperature {
-    background-color: @orange;
+  background-color: @iris;
 }
 
 #temperature.critical {
-    background-color: @red;
+  background-color: @love;
+}
+
+#cpu {
+  background-color: @gold;
+}
+
+#memory {
+  background-color: @rose;
+}
+
+#network {
+  background-color: @pine;
+}
+
+#network.disconnected {
+  background-color: @love;
+}
+
+#wireplumber {
+  background-color: @foam;
+}
+
+#wireplumber.muted {
+  background-color: @love;
 }
 
 #tray {
-    background-color: @background;
+  background-color: @base;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @red;
+  -gtk-icon-effect: highlight;
+  background-color: @love;
 }
 
 #custom-media {
-    background-color: @green;
-    min-width: 100px;
+  background-color: @pine;
+  min-width: 100px;
 }

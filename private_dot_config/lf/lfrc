@@ -25,7 +25,7 @@ set icons
 set period 1
 
 # Borders
-set drawbox
+# set drawbox
 
 ##### Commands #####
 set previewer ~/.config/lf/lf_kitty_preview

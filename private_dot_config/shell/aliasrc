@@ -47,3 +47,8 @@ alias \
 	p="pacman" \
 	evi="evince" \
 	img="vimiv"
+
+# Pacman commands
+alias \
+	p-rem="pacman -Rcns" \
+	p-safe-rem="pacman -Runs"
