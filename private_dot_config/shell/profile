@@ -17,7 +17,7 @@ export TERMINAL="kitty"
 export BROWSER="firefox"
 
 # bat (cat) coloring:
-export BAT_THEME="Rose-pine"
+export BAT_THEME="Kanagawa"
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -208,3 +208,4 @@ ex=:\
 "
 # If running from tty1 start hyprland
 [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

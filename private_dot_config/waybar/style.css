@@ -1,4 +1,4 @@
-@import "themes/rose-pine.css";
+@import "themes/kanagawa.css";
 
 * {
   border: none;
@@ -19,33 +19,33 @@ window#waybar.hidden {
 #workspaces {
   padding: 2px 10px;
   border-radius: 20px;
-  background-color: @base;
+  background-color: @background;
 }
 
 #workspaces button {
   min-width: 20px;
   padding: 0 3px;
-  color: @pine;
+  color: @green;
 }
 
 #workspaces button.persistent {
-  color: @text;
+  color: @foreground;
 }
 
 #workspaces button.empty {
-  color: @text;
+  color: @foreground;
 }
 
 #workspaces button.visible {
-  color: @gold;
+  color: @yellow;
 }
 
 #workspaces button.active {
-  color: @rose;
+  color: @white;
 }
 
 #workspaces button.urgent {
-  color: @love;
+  color: @red;
 }
 
 #clock,
@@ -61,33 +61,33 @@ window#waybar.hidden {
 #tray {
   padding: 2px 10px;
   border-radius: 20px;
-  color: @base;
+  color: @background;
 }
 
 #clock {
-  background-color: @rose;
+  background-color: @white;
 }
 
 #battery {
-  background-color: @pine;
+  background-color: @green;
 }
 
 #battery.charging,
 #battery.plugged {
-  background-color: @gold;
-  color: @base;
+  background-color: @yellow;
+  color: @background;
 }
 
 @keyframes blink {
   to {
-    background-color: @text;
-    color: @base;
+    background-color: @foreground;
+    color: @background;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: @love;
-  color: @base;
+  background-color: @red;
+  color: @background;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -96,47 +96,47 @@ window#waybar.hidden {
 }
 
 label:focus {
-  background-color: @base;
+  background-color: @background;
 }
 
 #backlight {
-  background-color: @foam;
+  background-color: @blue;
 }
 
 #temperature {
-  background-color: @iris;
+  background-color: @magenta;
 }
 
 #temperature.critical {
-  background-color: @love;
+  background-color: @red;
 }
 
 #cpu {
-  background-color: @gold;
+  background-color: @yellow;
 }
 
 #memory {
-  background-color: @rose;
+  background-color: @white;
 }
 
 #network {
-  background-color: @pine;
+  background-color: @green;
 }
 
 #network.disconnected {
-  background-color: @love;
+  background-color: @red;
 }
 
 #wireplumber {
-  background-color: @foam;
+  background-color: @blue;
 }
 
 #wireplumber.muted {
-  background-color: @love;
+  background-color: @red;
 }
 
 #tray {
-  background-color: @base;
+  background-color: @background;
 }
 
 #tray > .passive {
@@ -145,10 +145,10 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: @love;
+  background-color: @red;
 }
 
 #custom-media {
-  background-color: @pine;
+  background-color: @green;
   min-width: 100px;
 }

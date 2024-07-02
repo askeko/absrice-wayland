@@ -34,7 +34,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 15x32
+    offset = 15x15
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -50,16 +50,16 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 4
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 1
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 0
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 500
 
 
     # Show how many messages are currently hidden (because of
@@ -74,7 +74,7 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 3
 
     # Padding between text and separator.
     padding = 8
@@ -90,7 +90,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#ebbcba"
+    frame_color = "#76946a"
 
     # Define a color for the separator.
     # possible values are:
@@ -175,7 +175,7 @@
     ignore_newline = no
 
     # Stack together notifications with the same content
-    stack_duplicates = true
+    stack_duplicates = false
 
     # Hide the count of stacked notifications with the same content
     hide_duplicate_count = false
@@ -214,7 +214,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/brave
+    browser = /usr/bin/firefox
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -230,7 +230,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 5
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -290,23 +290,23 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#191724"
-    foreground = "#ebbcba"
-    frame_color = "#ebbcba"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
+    frame_color = "#7e9cd8"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
 
 [urgency_normal]
-    background = "#191724"
-    foreground = "#ebbcba"
-    frame_color = "#ebbcba"
+    background = "#1f1f28"
+    foreground = "#dcd7ba"
+    frame_color = "#76946a"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#191724"
-    foreground = "#eb6f92"
-    frame_color = "#eb6f92"
+    background = "#1f1f28"
+    foreground = "#e82424"
+    frame_color = "#c34043"
     timeout = 10
     default_icon = ~/.config/dunst/critical.png
 

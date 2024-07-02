@@ -61,11 +61,9 @@ run_rofi() {
 # Choose Timer
 # CMD
 timer_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+	rofi -theme-str 'window {width: 500px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 1; lines: 5;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Choose timer:'
@@ -107,11 +105,9 @@ timer_run_instant() {
 # Chose Screenshot Type
 # CMD
 type_screenshot_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+	rofi -theme-str 'window {width: 500px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 1; lines: 3;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Type Of Screenshot:'
@@ -142,11 +138,9 @@ type_screenshot_run() {
 # Choose to save or copy photo
 # CMD
 copy_save_editor_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 400px;}' \
+	rofi -theme-str 'window {width: 500px;}' \
 		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 2;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
 		-dmenu \
 		-p 'Choose Option' \
 		-mesg 'Copy/save the screenshot or open in image editor'

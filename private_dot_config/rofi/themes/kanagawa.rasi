@@ -5,16 +5,32 @@
  *******************************************************************************/
 
 * {
-    fg0:    #1f1f28;
-    fg1:    #2d4f67;
-    bg0:    #dcd7ba;
-    bg1:    #c8c093;
-    blue0:  #7e9cd8;
-    blue1:  #7fb4ca;
-    green0: #76946a;
-    green1: #98bb6c;
-}
+foreground:             #dcd7ba;
+background:             #1f1f28;
+selectionforeground:   #c8c093;
+selectionbackground:   #2d4f67;
 
-element selected {
-    text-color: @bg1;
+black0:                 #16161d;
+black1:                 #727169;
+
+red0:                   #c34043;
+red1:                   #e82424;
+
+green0:                 #76946a;
+green1:                 #98bb6c;
+
+yellow0:                #c0a36e;
+yellow1:                #e6c384;
+
+blue0:                  #7e9cd8;
+blue1:                  #7fb4ca;
+
+magenta0:               #957fb8;
+magenta1:               #938aa9;
+
+cyan0:                  #6a9589;
+cyan1:                  #7aa89f;
+
+white0:                 #c8c093;
+white1:                 #dcd7ba;
 }
