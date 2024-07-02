@@ -24,7 +24,8 @@ configuration {
 window {
     location:       northwest;
     width:          480;
-    x-offset: 5;
+    x-offset: 8;
+    y-offset: 2;
     border-radius:  24px;
 
     background-color:   @black0;
