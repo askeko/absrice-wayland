@@ -15,15 +15,15 @@
 ## Add this to the ~/.config/user-dirs.dirs to save in the Screenshots folder: XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
 
 prompt='Screenshot'
-mesg="DIR: ~/Screenshots"
+mesg="DIR: ~/"
 
 # Options
 option_1="󰹑 Capture"
-option_2="󰁫 Timer capture"
+option_2="󱎫 Timer capture"
 
-option_capture_1="󰍺 All Screen"
+option_capture_1="󰍺 All Screens"
 option_capture_2="󰍹 Capture Active Screen"
-option_capture_3="󱣴 Capture Area/Window/Application"
+option_capture_3="󱣵 Capture Area/Window/Application"
 
 option_time_1="5s"
 option_time_2="10s"
@@ -36,7 +36,7 @@ list_col='1'
 list_row='2'
 win_width='300px'
 
-copy=' Copy'
+copy=' Copy'
 save=' Save'
 copy_save='Copy & Save'
 edit='Edit Screenshot'

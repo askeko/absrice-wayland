@@ -8,7 +8,7 @@
 
 configuration {
     show-icons: true;
-    icon-theme: "Material Design";
+    icon-theme: "SymbolsNerdFontMono";
     drun-display-format: "{icon} {name}";
     terminal: "kitty";
 }

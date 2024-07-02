@@ -2,9 +2,11 @@
     // Dimensions and position
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height
+    "height": 24, // Waybar height
     "spacing": 10, // Gaps between modules
-    "margin": 4,
+    "margin-left": 9,
+    "margin-right": 9,
+    "margin-top": 6,
 
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "custom/media"],
@@ -15,36 +17,41 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "<span size='14pt'>{icon}</span>",
+        "format":"<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
         "format-icons": {
-            "1": "󰆍",
-            "2": "󰈹",
-            "3": "󰨞",
-            "4": "󱗖",
-            "5": "󰙯",
-            "urgent": "",
-            "default": "󰣇"
+            "1":"󰆍",
+            "2":"󰈹",
+            "3":"󰨞",
+            "4":"󱗖",
+            "5":"󰙯",
+            "urgent":"",
+            "default":"󰣇"
         }
     },
 
     // Modules configuration
     "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
         "show-special": true,
-        "format": "<span size='14pt'>{icon}</span>",
+        "format":"<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
         "format-icons": {
-            "1": "󰆍",
-            "2": "󰨞",
-            "3": "󱗖",
-            "4": "󰈹",
-            "5": "󰙯",
-            "6": "󰣇",
-            "7": "󰣇",
-            "8": "󰣇",
-            "9": "󰣇",
-            "10": "󰣇",
-            "urgent": "",
-            "default": "󰣇"
+            "1":"",
+            "2":"",
+            "3":"󰗚",
+            "4":"󰈹",
+            "5":"",
+            "6":"󰓇",
+            "7":"󰣇",
+            "8":"󰣇",
+            "9":"󰣇",
+            "10":"󰣇",
+            "urgent":"",
+            "default":"󰣇"
         },
+        "persistent-workspaces": {
+            "*": 10, // 10 workspaces by default on every monitor
+        }
     },
 
     "tray": {
@@ -53,32 +60,47 @@
     },
 
     "clock": {
-        "timezone": "Europe/Copenhagen",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format-alt": "{:%Y-%d-%m}"
+        "format": "{:%a, %b %d, %Y %R} <span font_family='SymbolsNerdFontMono' size='10pt'>󰥔</span>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#7e9cd8'><b>{}</b></span>",
+                "days":       "<span color='#dcd7ba'><b>{}</b></span>",
+                "weeks":      "<span color='#76946a'><b>W{}</b></span>",
+                "weekdays":   "<span color='#957fb8'><b>{}</b></span>",
+                "today":      "<span color='#c34043'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+        }
     },
 
     "cpu": {
-        "format": "{usage}% <span size='12pt'>󰘚</span>",
+        "format": "{usage}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰻠</span>",
     },
 
     "memory": {
-        "format": "{}% <span size='12pt'>󰍛</span>"
+        "format": "{}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰍛</span>"
     },
 
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C <span size='12pt'>{icon}</span>",
-        "format": "{temperatureC}°C <span size='12pt'>{icon}</span>",
+        // "format-critical": "{temperatureC}°C <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format": "{temperatureC}°C <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
         "format-icons": ["󱃃", "󱩿", "󰸁"]
     },
 
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% <span size='12pt'>{icon}</span>",
-        "format-icons": ["󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
+        "format": "{percent}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
     },
 
     "battery": {
@@ -87,34 +109,34 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% <span size='12pt'>{icon}</span>",
-        "format-charging": "{capacity}% <span size='12pt'>󰢝</span>",
-        "format-plugged": "{capacity}% <span size='12pt'></span>",
-        "format-alt": "{time} <span size='12pt'>{icon}</span>",
+        "format": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format-charging": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰂄</span>",
+        "format-plugged": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰚥</span>",
+        "format-alt": "{time} <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{signalStrength}% <span size='12pt'>󰖩</span>",
-        "format-ethernet": "<span size='12pt'>󰈀</span>",
-        "tooltip-format": "{ifname} via {gwaddr} <span size='12pt'>󰈀</span>",
-        "format-disconnected": "Disconnected <span size='12pt'>󰀦</span>",
+        "format-wifi": "{signalStrength}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰘊</span>",
+        "format-ethernet": "<span font_family='SymbolsNerdFontMono' size='10pt'>󰈀</span>",
+        "tooltip-format": "{ifname} via {gwaddr} <span font_family='SymbolsNerdFontMono' size='10pt'>󰈀</span>",
+        "format-disconnected": "Disconnected <span font_family='SymbolsNerdFontMono' size='10pt'>󰞃</span>",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "wireplumber": {
-        "format": "{volume}% <span size='12pt'>{icon}</span>",
-        "format-muted": "<span size='12pt'>󰸈</span>",
+        "format": "{volume}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format-muted": "<span font_family='SymbolsNerdFontMono' size='10pt'></span>",
         "max-volume": 120,
         "on-click": "helvum",
-        "format-icons": ["󰕿", "󰖀", "󰕾"]
+        "format-icons": ["", "", ""]
     },
 
     "custom/media": {
-        "format": "<span size='12pt'>{icon}</span> {}",
+        "format": "<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span> {}",
         "escape": true,
         "return-type": "json",
         "max-length": 40,

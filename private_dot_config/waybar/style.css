@@ -1,11 +1,12 @@
 @import "themes/kanagawa.css";
-
 * {
   border: none;
   border-radius: 0;
-  font-family: FiraCode Nerd Font Mono;
-  font-size: 12px;
-  min-height: 12px;
+  font-family:
+    Symbols Nerd Font Mono,
+    FiraCode Nerd Font Mono;
+  font-size: 13px;
+  min-height: 13px;
 }
 
 window#waybar {
@@ -17,20 +18,20 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  padding: 2px 10px;
-  border-radius: 20px;
+  padding: 0px 10px;
+  border-radius: 5px;
   background-color: @background;
 }
 
 #workspaces button {
-  min-width: 20px;
+  min-width: 24px;
   padding: 0 3px;
-  color: @green;
+  color: @blue;
 }
 
-#workspaces button.persistent {
-  color: @foreground;
-}
+/*#workspaces button.persistent {*/
+/*  color: @foreground;*/
+/*}*/
 
 #workspaces button.empty {
   color: @foreground;
@@ -41,11 +42,18 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  color: @white;
+  color: @background;
+  background-color: @green;
 }
 
 #workspaces button.urgent {
   color: @red;
+}
+
+#supmap {
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: @background;
 }
 
 #clock,
@@ -60,7 +68,7 @@ window#waybar.hidden {
 #bluetooth,
 #tray {
   padding: 2px 10px;
-  border-radius: 20px;
+  border-radius: 5px;
   color: @background;
 }
 
