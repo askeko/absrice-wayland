@@ -2,16 +2,16 @@
     // Dimensions and position
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height
+    "height": 26, // Waybar height
     "spacing": 10, // Gaps between modules
-    "margin-left": 9,
-    "margin-right": 9,
-    "margin-top": 6,
+    //"margin-left": 9,
+    //"margin-right": 9,
+    //"margin-top": 6,
 
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "custom/media"],
-    "modules-center": [""],
-    "modules-right": ["wireplumber", "network", "cpu", "memory", "temperature", "backlight", "battery", "clock", "tray"],
+    "modules-center": ["clock", "custom/pacman"],
+    "modules-right": ["custom/weather", "disk", "network", "cpu", "memory", "temperature", "wireplumber", "battery", "tray"],
 
     // Modules configuration
     "sway/workspaces": {
@@ -60,7 +60,7 @@
     },
 
     "clock": {
-        "format": "{:%a, %b %d, %Y %R} <span font_family='SymbolsNerdFontMono' size='10pt'>󰥔</span>",
+        "format": "{:%a, %b %d, %R} <span font_family='SymbolsNerdFontMono' size='10pt'>󰥔</span>",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "month",
@@ -103,6 +103,13 @@
         "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
     },
 
+    "disk": {
+        "interval": 30,
+        "format": "{specific_used:0.2f}/{specific_total:0.2f} <span font_family='SymbolsNerdFontMono' size='10pt'>󱛟</span>",
+        "unit": "GB",
+        "path": "/"
+    },
+
     "battery": {
         "full-at": 99,
         "states": {
@@ -116,7 +123,7 @@
         "format-alt": "{time} <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󱐋"]
     },
 
     "network": {
@@ -147,7 +154,22 @@
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-    }
+    },
+
+    "custom/pacman": {
+        "format": "{}  ",
+        "interval": 1800,                     // every half hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+    },
+
+    "custom/weather": {
+        "exec": "get_weather.sh Aalborg",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800
+    },
 }
 
 
