@@ -78,39 +78,39 @@ window#waybar.hidden {
 }
 
 #disk {
-  color: @white;
-  box-shadow: inset 0 -4px @white;
+  color: @cyan_alt;
+  box-shadow: inset 0 -4px @cyan_alt;
 }
 
 #custom-weather {
-  color: @blue;
-  box-shadow: inset 0 -4px @blue;
+  color: @magenta_alt;
+  box-shadow: inset 0 -4px @magenta_alt;
 }
 
 #custom-pacman {
-  color: @green;
-  box-shadow: inset 0 -4px @green;
+  color: @blue_alt;
+  box-shadow: inset 0 -4px @blue_alt;
 }
 
 #clock {
+  color: @green_alt;
+  box-shadow: inset 0 -4px @green_alt;
+}
+
+#battery {
   color: @yellow;
   box-shadow: inset 0 -4px @yellow;
 }
 
-#battery {
-  color: @white;
-  box-shadow: inset 0 -4px @white;
-}
-
 #battery.charging,
 #battery.plugged {
-  color: @white;
+  color: @yellow;
 }
 
 @keyframes blink {
   to {
-    box-shadow: inset 0 -4px @white;
-    color: @white;
+    box-shadow: inset 0 -4px @yellow;
+    color: @yellow;
   }
 }
 
@@ -134,8 +134,8 @@ label:focus {
 }
 
 #temperature {
-  box-shadow: inset 0 -4px @green;
-  color: @green;
+  box-shadow: inset 0 -4px @magenta;
+  color: @magenta;
 }
 
 #temperature.critical {
@@ -144,18 +144,18 @@ label:focus {
 }
 
 #cpu {
-  box-shadow: inset 0 -4px @magenta;
-  color: @magenta;
+  box-shadow: inset 0 -4px @green;
+  color: @green;
 }
 
 #memory {
-  box-shadow: inset 0 -4px @yellow;
-  color: @yellow;
+  box-shadow: inset 0 -4px @blue;
+  color: @blue;
 }
 
 #network {
-  box-shadow: inset 0 -4px @cyan;
-  color: @cyan;
+  box-shadow: inset 0 -4px @white;
+  color: @white;
 }
 
 #network.disconnected {
@@ -164,8 +164,8 @@ label:focus {
 }
 
 #wireplumber {
-  box-shadow: inset 0 -4px @blue;
-  color: @blue;
+  box-shadow: inset 0 -4px @cyan;
+  color: @cyan;
 }
 
 #wireplumber.muted {
@@ -183,7 +183,7 @@ label:focus {
 }
 
 #custom-media {
-  color: @green;
-  box-shadow: inset 0 -4px @green;
+  color: @yellow_alt;
+  box-shadow: inset 0 -4px @yellow_alt;
   min-width: 100px;
 }
