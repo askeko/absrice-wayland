@@ -10,7 +10,7 @@
 }
 
 window#waybar {
-  background: @background;
+  background-color: @background;
 }
 
 window#waybar.hidden {
@@ -20,7 +20,7 @@ window#waybar.hidden {
 #workspaces {
   padding: 0px 10px;
   border-radius: 0px;
-  background-color: @background;
+  background-color: transparent;
 }
 
 #workspaces button {
@@ -43,7 +43,7 @@ window#waybar.hidden {
 
 #workspaces button.active {
   color: @green;
-  background-color: @background;
+  background-color: @transparent;
   box-shadow: inset 0 -4px @green;
 }
 
@@ -74,7 +74,7 @@ window#waybar.hidden {
   padding: 0px 8px;
   border-radius: 0px;
   color: @foreground;
-  background-color: @background;
+  background-color: transparent;
 }
 
 #disk {
