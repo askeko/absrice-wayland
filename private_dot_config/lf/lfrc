@@ -69,6 +69,8 @@ cmd zip ${{
     rm -rf $1
 }}
 
+cmd set_bg "$1"
+
 ##### Bindings #####
 
 # Executes current file provided it is executable
@@ -85,3 +87,5 @@ map <c-d> :push %mkdir<space>
 map <c-z> set hidden!
 map <enter> shell
 map E extract
+
+map b $set_bg $f
