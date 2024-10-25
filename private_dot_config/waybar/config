@@ -11,7 +11,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["clock", "custom/pacman"],
-    "modules-right": ["custom/weather", "disk", "network", "cpu", "memory", "temperature", "wireplumber", "battery", "tray"],
+    "modules-right": ["custom/weather", "network", "cpu", "memory", "temperature", "wireplumber", "battery", "tray"],
 
     // Modules configuration
     "sway/workspaces": {
@@ -60,6 +60,7 @@
     },
 
     "clock": {
+        "timezone": "Europe/Copenhagen",
         "format": "{:%a, %b %d, %R} <span font_family='SymbolsNerdFontMono' size='10pt'>󰥔</span>",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
