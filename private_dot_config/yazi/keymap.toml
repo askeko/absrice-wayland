@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+	{ on = "b", run = 'shell "set_bg $0" --confirm', desc = "Set picture as background" },
+]

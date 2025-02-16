@@ -12,12 +12,12 @@ export PATH="$PATH:${$(find ~/.local/bin/scripts -type d -printf %p:)%%:}"
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="nvim"
+export EDITOR="neovide"
 export TERMINAL="kitty"
 export BROWSER="firefox"
 
 # bat (cat) coloring:
-export BAT_THEME="Kanagawa"
+export BAT_THEME="OneHalfDark"
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -32,13 +32,14 @@ export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
 export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
 export NODE_REPL_HISTORY="${XDG_CONFIG_HOME:-$HOME/.config}/node_repl_history"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
+export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # Set hyprland env values
 export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=Hyprland
 
 # qt theme env value
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=gtk2
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -206,6 +207,11 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
-# If running from tty1 start hyprland
+# # If running from tty1 start hyprland
 [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+# [ "$(tty)" = "/dev/tty1" ] && exec dwl
+# if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
+#     exec sway
+# fi
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

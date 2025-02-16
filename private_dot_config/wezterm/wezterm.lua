@@ -29,7 +29,7 @@ config.window_padding = {
 	top = 25,
 	bottom = 25,
 }
-config.window_background_opacity = 0.85
+config.window_background_opacity = 1
 front_end = "OpenGL"
 
 -- and finally, return the configuration to wezterm

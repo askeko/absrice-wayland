@@ -1,218 +1,184 @@
 #!/usr/bin/env bash
 
-## Author  : Aditya Shakya (adi1090x)
-## Github  : @adi1090x
-#
-## Applets : Screenshot (Ported to use Grimblast)
-
-## Modify
-## Author  : Gonçalo Duarte (MrDuartePT)
-## Github  : @MrDuartePT
-
-## Port for Grimblast (https://github.com/hyprwm/contrib/tree/main/grimblast)
-## Aur Package: grimblast-git (https://aur.archlinux.org/packages/grimblast-git)
-
-## Add this to the ~/.config/user-dirs.dirs to save in the Screenshots folder: XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
-
 prompt='Screenshot'
-mesg="DIR: ~/"
+mesg="DIR: ~/Pictures"
 
-# Options
-option_1="󰹑 Capture"
-option_2="󱎫 Timer capture"
-
-option_capture_1="󰍺 All Screens"
-option_capture_2="󰍹 Capture Active Screen"
-option_capture_3="󱣵 Capture Area/Window/Application"
-
-option_time_1="5s"
-option_time_2="10s"
-option_time_3="20s"
-option_time_4="30s"
-option_time_5="60s"
-#option_time_4="Custom (in seconds)" # Roadmap or someone contribute :)
-
-list_col='1'
-list_row='2'
-win_width='300px'
+option_1="󰍹 Take Screenshot"
+option_2="󱂬 Capture Focused Window"
+option_3="󱣵 Capture Area"
 
 copy=' Copy'
 save=' Save'
-copy_save='Copy & Save'
-edit='Edit Screenshot'
+
+# Notification click handler (Taken from https://github.com/vlevit/notify-send.sh)
+function monitor() {
+    local notification_id=$1
+    local filename=$2
+    local delete_tmp=$3
+
+    if [ "$filename" == "" ] || [ "$notification_id" == "" ]; then
+        exit 0
+    fi
+
+    local gdbus_monitor_pid=/tmp/screenshot-action-dbus-monitor.$$.pid
+    local gdbus_monitor=(gdbus monitor --session --dest org.freedesktop.Notifications --object-path /org/freedesktop/Notifications)
+    rm -f "$gdbus_monitor_pid"
+    umask 077
+    touch "$gdbus_monitor_pid"
+    (
+        "${gdbus_monitor[@]}" &
+        echo $! >&3
+    ) 3>"$gdbus_monitor_pid" | while read -r line; do
+        local closed_notification_id="$(sed '/^\/org\/freedesktop\/Notifications: org.freedesktop.Notifications.NotificationClosed (uint32 \([0-9]\+\), uint32 [0-9]\+)$/!d;s//\1/' <<<"$line")"
+        if [[ -n "$closed_notification_id" ]]; then
+            if [[ "$closed_notification_id" == "$notification_id" ]]; then
+                if [ $delete_tmp == 1 ]; then
+                    rm -rf "$filename"
+                fi
+                break
+            fi
+        else
+            local action_invoked="$(sed '/\/org\/freedesktop\/Notifications: org.freedesktop.Notifications.ActionInvoked (uint32 \([0-9]\+\), '\''\(.*\)'\'')$/!d;s//\1:\2/' <<<"$line")"
+            IFS=: read invoked_id action_id <<<"$action_invoked"
+            if [[ "$invoked_id" == "$notification_id" ]]; then
+                xdg-open "$filename"
+                break
+            fi
+        fi
+    done
+    kill $(<"$gdbus_monitor_pid")
+    rm -rf "$gdbus_monitor_pid"
+}
+
+function send_notification() {
+    local title=$1
+    local body=$2
+    local filename=$3
+
+    local notification_id=$(gdbus call --session \
+        --dest org.freedesktop.Notifications \
+        --object-path /org/freedesktop/Notifications \
+        --method org.freedesktop.Notifications.Notify \
+        -- \
+        "Screenshot" 0 "$filename" "$title" "$body" \
+        "['default', '']" {} "int32 -1" | sed 's/(uint32 \([0-9]\+\),)/\1/g')
+
+    monitor $notification_id "$filename" $4 &
+}
+
+function notify() {
+    if ! command -v gdbus &>/dev/null; then
+        return
+    fi
+    if [ "$1" == "" ] || [ "$2" == "$copy" ]; then
+        return
+    fi
+
+    local detail="Saved at $1"
+    if [ "$2" == "$copy" ]; then
+        detail="Stored in clipboard"
+    fi
+
+    send_notification "Screenshot taken" "$detail" "$1" "$2"
+}
+
+function take_screenshot() {
+    local screenshot_type=$1
+    local copy_to_clipboard=$2
+    local filename=""
+    local cmd="grim"
+    local geo=""
+
+    if [ "$copy_to_clipboard" == "" ]; then
+        return
+    elif [ "$screenshot_type" == "$option_2" ]; then
+        cmd="grim -g"
+        geo=$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')
+    elif [ "$screenshot_type" == "$option_3" ]; then
+        cmd="grim -g"
+        geo=$(slurp)
+    fi
+
+    if [ "$copy_to_clipboard" == "$copy" ]; then
+        filename=$(mktemp /tmp/screenshot.XXXXXX.png)
+    else
+        filename=$(xdg-user-dir PICTURES)/$(date +'Screenshot_%Y-%m-%d_%H%M%S.png')
+    fi
+
+    if [ "$geo" == "" ]; then
+        $cmd - | swappy -o "$filename" -f -
+    else
+        $cmd "$geo" - | swappy -o "$filename" -f -
+    fi
+
+    if [ "$copy_to_clipboard" == "$copy" ]; then
+        wl-copy <"$filename"
+    fi
+
+    notify "$filename" "$copy_to_clipboard"
+}
 
 # Rofi CMD
-rofi_cmd() {
-	rofi -theme-str "window {width: $win_width;}" \
-		-theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-p "$prompt" \
-		-mesg "$mesg" \
-		-markup-rows
+function rofi_cmd() {
+    rofi -theme-str "window {width: 350px;}" \
+        -theme-str "listview {columns: 1; lines: 3;}" \
+        -theme-str 'textbox-prompt-colon {str: "";}' \
+        -dmenu \
+        -p "$prompt" \
+        -mesg "$mesg" \
+        -markup-rows
 }
 
-# Pass variables to rofi dmenu
-run_rofi() {
-	echo -e "$option_1\n$option_2" | rofi_cmd
-}
-
-####
-# Choose Timer
-# CMD
-timer_cmd() {
-	rofi -theme-str 'window {width: 500px;}' \
-		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 1; lines: 5;}' \
-		-dmenu \
-		-p 'Choose Option' \
-		-mesg 'Choose timer:'
-}
-
-# Ask for confirmation
-timer_exit() {
-	echo -e "$option_time_1\n$option_time_2\n$option_time_3\n$option_time_4\n$option_time_5" | timer_cmd
-}
-
-# Confirm and execute
-timer_run() {
-	selected_timer="$(timer_exit)"
-	if [[ "$selected_timer" == "$option_time_1" ]]; then
-		countdown=5
-		${1}
-	elif [[ "$selected_timer" == "$option_time_2" ]]; then
-		countdown=10
-		${1}
-	elif [[ "$selected_timer" == "$option_time_3" ]]; then
-		countdown=20
-		${1}
-	elif [[ "$selected_timer" == "$option_time_4" ]]; then
-		countdown=30
-		${1}
-	elif [[ "$selected_timer" == "$option_time_5" ]]; then
-		countdown=60
-		${1}
-	fi
-}
-###
-
-# Delayed screenshot to avoid artifacts on screen
-timer_run_instant() {
-	countdown=1
-}
-
-####
-# Chose Screenshot Type
-# CMD
-type_screenshot_cmd() {
-	rofi -theme-str 'window {width: 500px;}' \
-		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 1; lines: 3;}' \
-		-dmenu \
-		-p 'Choose Option' \
-		-mesg 'Type Of Screenshot:'
-}
-
-# Ask for confirmation
-type_screenshot_exit() {
-	echo -e "$option_capture_1\n$option_capture_2\n$option_capture_3" | type_screenshot_cmd
-}
-
-# Confirm and execute
-type_screenshot_run() {
-	selected_type_screenshot="$(type_screenshot_exit)"
-	if [[ "$selected_type_screenshot" == "$option_capture_1" ]]; then
-		option_type_screenshot=screen
-		${1}
-	elif [[ "$selected_type_screenshot" == "$option_capture_2" ]]; then
-		option_type_screenshot=output
-		${1}
-	elif [[ "$selected_type_screenshot" == "$option_capture_3" ]]; then
-		option_type_screenshot=area
-		${1}
-	fi
-}
-###
-
-####
-# Choose to save or copy photo
-# CMD
-copy_save_editor_cmd() {
-	rofi -theme-str 'window {width: 500px;}' \
-		-theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 2;}' \
-		-dmenu \
-		-p 'Choose Option' \
-		-mesg 'Copy/save the screenshot or open in image editor'
-}
-
-# Ask for confirmation
-copy_save_editor_exit() {
-	echo -e "$copy\n$save\n$copy_save\n$edit" | copy_save_editor_cmd
-}
-
-# Confirm and execute
-copy_save_editor_run() {
-	selected_chosen="$(copy_save_editor_exit)"
-	if [[ "$selected_chosen" == "$copy" ]]; then
-		option_chosen=copy
-		${1}
-	elif [[ "$selected_chosen" == "$save" ]]; then
-		option_chosen=save
-		${1}
-	elif [[ "$selected_chosen" == "$copy_save" ]]; then
-		option_chosen=copysave
-		${1}
-	elif [[ "$selected_chosen" == "$edit" ]]; then
-		option_chosen=edit
-		${1}
-	fi
-}
-###
-
-timer() {
-	if [[ $countdown -gt 10 ]]; then
-		countdown_less_10=$((countdown - 10))
-		sleep $countdown_less_10
-		countdown=10
-	fi
-	while [[ $countdown -ne 0 ]]; do
-		countdown=$((countdown - 1))
-		sleep 1
-	done
-}
-
-# take shots
-takescreenshot() {
-	timer
-	grimblast --notify "$option_chosen" "$option_type_screenshot"
-}
-
-takescreenshot_timer() {
-	timer
-	grimblast --notify "$option_chosen" "$option_type_screenshot"
+function save_copy() {
+    rofi -theme-str 'window {width: 500px;}' \
+        -theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+        -theme-str 'listview {columns: 1; lines: 3;}' \
+        -dmenu \
+        -p 'Choose Option' \
+        -mesg 'Copy/save the screenshot:' \
+        -markup-rows
 }
 
 # Execute Command
-run_cmd() {
-	if [[ "$1" == '--opt1' ]]; then
-		timer_run_instant
-		type_screenshot_run
-		copy_save_editor_run "takescreenshot"
-	elif [[ "$1" == '--opt2' ]]; then
-		timer_run
-		type_screenshot_run
-		copy_save_editor_run "takescreenshot_timer"
-	fi
+function run_cmd() {
+    if [[ "$1" == '--opt1' ]]; then
+        copy_save="$(copy_save)"
+        take_screenshot "$option_1" "$copy_save"
+    elif [[ "$1" == '--opt2' ]]; then
+        copy_save="$(copy_save)"
+        take_screenshot "$option_2" "$copy_save"
+    elif [[ "$1" == '--opt3' ]]; then
+        copy_save="$(copy_save)"
+        take_screenshot "$option_3" "$copy_save"
+    fi
 }
 
-# Actions
+copy_save_cmd() {
+    rofi -theme-str 'window {width: 300px;}' \
+        -theme-str 'mainbox {orientation: vertical; children: [ "message", "listview" ];}' \
+        -theme-str 'listview {columns: 1; lines: 2;}' \
+        -dmenu \
+        -p 'Choose Option' \
+        -mesg 'Copy/save the screenshot'
+}
+
+function copy_save() {
+    echo -e "$copy\n$save" | copy_save_cmd
+}
+
+function run_rofi() {
+    echo -e "$option_1\n$option_2\n$option_3" | rofi_cmd
+}
+
 chosen="$(run_rofi)"
 case ${chosen} in
 $option_1)
-	run_cmd --opt1
-	;;
+    run_cmd --opt1
+    ;;
 $option_2)
-	run_cmd --opt2
-	;;
+    run_cmd --opt2
+    ;;
+$option_3)
+    run_cmd --opt3
+    ;;
 esac

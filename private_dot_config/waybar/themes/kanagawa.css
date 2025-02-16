@@ -1,0 +1,16 @@
+/* Kanagawa */
+
+@define-color background    #1f1f28;
+@define-color foreground    #dcd7ba;
+@define-color blue          #7e9cd8;
+@define-color blue_alt      #7fb4ca;
+@define-color cyan          #6a9589;
+@define-color cyan_alt      #7aa89f;
+@define-color magenta       #957fb8;
+@define-color magenta_alt   #938aa9;
+@define-color yellow        #c0a36e;
+@define-color yellow_alt    #e6c384;
+@define-color green         #76946a;
+@define-color green_alt     #98bb6c;
+@define-color red           #c34043;
+@define-color white         #c8c093;

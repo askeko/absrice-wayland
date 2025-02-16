@@ -1,0 +1,21 @@
+* {
+    font: "FiraCode Nerd Font Mono 12";
+
+    foreground: #abb2bf;
+    background-color: #282c34;
+    active-background: #61afef;
+    active-foreground: #282c34;
+    urgent-background: #e06c75;
+    urgent-foreground: #282c34;
+
+    selected-background: @active-background;
+    selected-foreground: @active-foreground;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    separatorcolor: @active-background;
+    bordercolor: #61afef;
+    cyan: #56b6c2;
+    green: #98c379;
+    purple: #c678dd;
+}
+

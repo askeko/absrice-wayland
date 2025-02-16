@@ -13,7 +13,7 @@
     set $up k
     set $right l
 # Your preferred terminal emulator
-    set $term wezterm
+    set $term kitty
     set $menu rofi -show drun
     set $browser firefox
 
@@ -60,14 +60,14 @@
 
 # Set borders and gaps
     default_border pixel 3
-    smart_borders on
+    smart_borders off
 
     gaps inner 5
     gaps outer 8
 
-    client.focused #7aa2f7ee #7aa2f7ee #1f2335ee
-    client.unfocused #1f2335aa #1f2335aa #c0caf5aa
-    client.focused_inactive #7aa2f780 #7aa2f780 #c0caf580
+    client.focused #61afef #61afef #282c34
+    client.unfocused #282c34 #282c34 #abb2bf
+    client.focused_inactive #61afef #61afef #abb2bf
 
 #####################
 ###### KEYMAPS ######
@@ -90,16 +90,16 @@
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    # # Move the focused window with the same, but add Shift
+    # bindsym $mod+Shift+$left move left
+    # bindsym $mod+Shift+$down move down
+    # bindsym $mod+Shift+$up move up
+    # bindsym $mod+Shift+$right move right
+    # # Ditto, with arrow keys
+    # bindsym $mod+Shift+Left move left
+    # bindsym $mod+Shift+Down move down
+    # bindsym $mod+Shift+Up move up
+    # bindsym $mod+Shift+Right move right
 
 # Workspaces
     # Switch to workspace
@@ -156,42 +156,31 @@
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $mod+Shift+$left resize shrink width 25px
+    bindsym $mod+Shift+$down resize grow height 25px
+    bindsym $mod+Shift+$up resize shrink height 25px
+    bindsym $mod+Shift+$right resize grow width 25px
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+r mode "resize"
+    bindsym $mod+Shift+Left resize shrink width 25px
+    bindsym $mod+Shift+Down resize grow height 25px
+    bindsym $mod+Shift+Up resize shrink height 25px
+    bindsym $mod+Shift+Right resize grow width 25px
 
 #scratchpad
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+p move scratchpad
+    # bindsym $mod+Shift+p move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+p scratchpad show
+    # bindsym $mod+p scratchpad show
 
 ###### PROGRAMS ######
 # Terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+r exec $term start lf
-    bindsym $mod+t exec $term start htop
+    bindsym $mod+r exec $term yazi
+    bindsym $mod+t exec $term htop
 
 # Menus
     bindsym $mod+d exec $menu
@@ -211,6 +200,7 @@ bindsym $mod+Shift+r mode "resize"
 
 # Screenshot
     bindsym Print exec scrot
+    bindsym $mod+p exec scrot
 
 # Configs
     bindsym $mod+Shift+c reload
@@ -225,7 +215,7 @@ bindsym $mod+Shift+r mode "resize"
     exec /usr/lib/polkit-kde-authentication-agent-1
 
     # Set cursor size
-    seat * xcursor_theme default 32
+    seat * xcursor_theme default 24
 ##################
 ###### MISC ######
 ##################

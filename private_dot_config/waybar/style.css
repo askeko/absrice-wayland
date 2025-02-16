@@ -1,189 +1,162 @@
-@import "themes/kanagawa.css";
-* {
-  border: none;
-  border-radius: 0;
-  font-family:
-    Symbols Nerd Font Mono,
-    FiraCode Nerd Font Mono;
-  font-size: 13px;
-  min-height: 13px;
-}
-
-window#waybar {
-  background-color: @background;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-#workspaces {
-  padding: 0px 10px;
-  border-radius: 0px;
-  background-color: transparent;
-}
-
-#workspaces button {
-  min-width: 24px;
-  padding: 0 3px;
-  color: @blue;
-}
-
-/*#workspaces button.persistent {*/
-/*  color: @foreground;*/
-/*}*/
-
-#workspaces button.empty {
-  color: @foreground;
-}
-
-#workspaces button.visible {
-  color: @yellow;
-}
-
-#workspaces button.active {
-  color: @green;
-  background-color: @transparent;
-  box-shadow: inset 0 -4px @green;
-}
-
-#workspaces button.urgent {
-  color: @red;
-}
-
-#supmap {
-  padding: 0px 10px;
-  border-radius: 5px;
-  background-color: @background;
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#wireplumber,
-#custom-media,
-#bluetooth,
-#disk,
-#custom-weather,
-#custom-pacman,
-#tray {
-  padding: 0px 8px;
-  border-radius: 0px;
-  color: @foreground;
-  background-color: transparent;
-}
-
-#disk {
-  color: @cyan_alt;
-  box-shadow: inset 0 -4px @cyan_alt;
-}
-
-#custom-weather {
-  color: @magenta_alt;
-  box-shadow: inset 0 -4px @magenta_alt;
-}
-
-#custom-pacman {
-  color: @blue_alt;
-  box-shadow: inset 0 -4px @blue_alt;
-}
-
-#clock {
-  color: @green_alt;
-  box-shadow: inset 0 -4px @green_alt;
-}
-
-#battery {
-  color: @yellow;
-  box-shadow: inset 0 -4px @yellow;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: @yellow;
-}
+@import "themes/onedark.css";
 
 @keyframes blink {
   to {
-    box-shadow: inset 0 -4px @yellow;
-    color: @yellow;
+    background-color: @red;
   }
 }
 
-#battery.critical:not(.charging) {
-  box-shadow: inset 0 -4px @red;
-  color: @red;
+* {
+  font-family:
+    Symbols Nerd Font,
+    FiraCode Nerd Font Mono;
+  font-size: 15px;
+  min-height: 0;
+  margin-top: 1px;
+}
+
+#temperature,
+#cpu,
+#memory,
+#disk,
+#network,
+#custom-pacman,
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#wireplumber,
+#custom-scrot {
+  background-color: @background;
+  padding: 0.5rem 0.8rem;
+  margin: 8px 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @background;
+}
+
+#workspaces {
+  background-color: @background;
+  border-radius: 2rem;
+  margin: 8px;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @magenta;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.empty {
+  color: @foreground;
+  border-radius: 1rem;
+}
+
+#workspaces button.active {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @magenta_alt;
+  border-radius: 1rem;
+}
+
+#workspaces button.urgent {
+  color: @magenta;
+  border-radius: 1rem;
   animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-timing-function: steps(200);
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-label:focus {
-  background-color: @background;
-}
-
-#backlight {
-  box-shadow: inset 0 -4px @blue;
-  color: @blue;
-}
-
 #temperature {
-  box-shadow: inset 0 -4px @magenta;
-  color: @magenta;
+  color: @yellow;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
 }
 
 #temperature.critical {
-  box-shadow: inset 0 -4px @red;
-  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(200);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #cpu {
-  box-shadow: inset 0 -4px @green;
-  color: @green;
+  color: @magenta;
 }
 
 #memory {
-  box-shadow: inset 0 -4px @blue;
-  color: @blue;
-}
-
-#network {
-  box-shadow: inset 0 -4px @white;
-  color: @white;
-}
-
-#network.disconnected {
-  box-shadow: inset 0 -4px @red;
-  color: @red;
-}
-
-#wireplumber {
-  box-shadow: inset 0 -4px @cyan;
   color: @cyan;
 }
 
+#disk {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#network {
+  color: @magenta;
+}
+
+#custom-pacman {
+  color: @orange;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#clock {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @cyan;
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(200);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#wireplumber {
+  color: @green;
+}
+
 #wireplumber.muted {
-  box-shadow: inset 0 -4px @red;
-  color: @red;
+  color: @background;
+  background-color: @red;
 }
 
-#tray > .passive {
-  -gtk-icon-effect: dim;
+#custom-music {
+  color: @cyan_alt;
+  border-radius: 1rem;
 }
 
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  box-shadow: inset 0 -4px @red;
+#custom-scrot {
+  margin-right: 1rem;
+  border-radius: 1rem;
+  color: @green;
 }
 
-#custom-media {
-  color: @yellow_alt;
-  box-shadow: inset 0 -4px @yellow_alt;
-  min-width: 100px;
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
 }

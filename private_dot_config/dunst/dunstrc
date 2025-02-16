@@ -290,23 +290,23 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1f1f28"
-    foreground = "#dcd7ba"
-    frame_color = "#7e9cd8"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#98c379"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
 
 [urgency_normal]
-    background = "#1f1f28"
-    foreground = "#dcd7ba"
-    frame_color = "#76946a"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#98c379"
     timeout = 5
     default_icon = ~/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#1f1f28"
-    foreground = "#e82424"
-    frame_color = "#c34043"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#e06c75"
     timeout = 10
     default_icon = ~/.config/dunst/critical.png
 

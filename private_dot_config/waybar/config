@@ -1,53 +1,23 @@
 {
-    // Dimensions and position
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 26, // Waybar height
-    "spacing": 10, // Gaps between modules
-    //"margin-left": 9,
-    //"margin-right": 9,
-    //"margin-top": 6,
 
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "custom/media"],
-    "modules-center": ["clock", "custom/pacman"],
-    "modules-right": ["custom/weather", "network", "cpu", "memory", "temperature", "wireplumber", "battery", "tray"],
+    "modules-left": ["hyprland/workspaces", "temperature", "cpu", "memory", "disk"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["custom/pacman", "backlight", "wireplumber", "network", "battery", "clock", "tray", "custom/scrot"],
 
-    // Modules configuration
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format":"<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        "format-icons": {
-            "1":"󰆍",
-            "2":"󰈹",
-            "3":"󰨞",
-            "4":"󱗖",
-            "5":"󰙯",
-            "urgent":"",
-            "default":"󰣇"
-        }
-    },
-
-    // Modules configuration
     "hyprland/workspaces": {
         "active-only": false,
         "all-outputs": true,
         "show-special": true,
-        "format":"<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format":"{icon}",
         "format-icons": {
-            "1":"",
-            "2":"",
-            "3":"󰗚",
-            "4":"󰈹",
-            "5":"",
-            "6":"󰓇",
-            "7":"󰣇",
-            "8":"󰣇",
-            "9":"󰣇",
-            "10":"󰣇",
+            "active":"󰣇",
+            "persistent":"",
+            "empty":"",
             "urgent":"",
-            "default":"󰣇"
+            "default":"󰣇",
         },
         "persistent-workspaces": {
             "*": 10, // 10 workspaces by default on every monitor
@@ -55,106 +25,30 @@
     },
 
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 18,
         "spacing": 10
     },
 
-    "clock": {
-        "timezone": "Europe/Copenhagen",
-        "format": "{:%a, %b %d, %R} <span font_family='SymbolsNerdFontMono' size='10pt'>󰥔</span>",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#7e9cd8'><b>{}</b></span>",
-                "days":       "<span color='#dcd7ba'><b>{}</b></span>",
-                "weeks":      "<span color='#76946a'><b>W{}</b></span>",
-                "weekdays":   "<span color='#957fb8'><b>{}</b></span>",
-                "today":      "<span color='#c34043'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions": {
-            "on-click-right": "mode",
-        }
-    },
-
-    "cpu": {
-        "format": "{usage}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰻠</span>",
-    },
-
-    "memory": {
-        "format": "{}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰍛</span>"
-    },
-
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        "format": "{temperatureC}°C <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
+        "format-critical": "{icon} {temperatureC}°",
+        "format": "{icon} {temperatureC}°",
         "format-icons": ["󱃃", "󱩿", "󰸁"]
     },
 
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
+    "cpu": {
+        "format": "󰻠 {usage}%",
     },
 
-    "disk": {
-        "interval": 30,
-        "format": "{specific_used:0.2f}/{specific_total:0.2f} <span font_family='SymbolsNerdFontMono' size='10pt'>󱛟</span>",
-        "unit": "GB",
-        "path": "/"
-    },
-
-    "battery": {
-        "full-at": 99,
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        "format-charging": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰂄</span>",
-        "format-plugged": "{capacity}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰚥</span>",
-        "format-alt": "{time} <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󱐋"]
+    "memory": {
+        "format": "󰍛 {}%"
     },
 
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{signalStrength}% <span font_family='SymbolsNerdFontMono' size='10pt'>󰘊</span>",
-        "format-ethernet": "<span font_family='SymbolsNerdFontMono' size='10pt'>󰈀</span>",
-        "tooltip-format": "{ifname} via {gwaddr} <span font_family='SymbolsNerdFontMono' size='10pt'>󰈀</span>",
-        "format-disconnected": "Disconnected <span font_family='SymbolsNerdFontMono' size='10pt'>󰞃</span>",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-
-    "wireplumber": {
-        "format": "{volume}% <span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span>",
-        "format-muted": "<span font_family='SymbolsNerdFontMono' size='10pt'></span>",
-        "max-volume": 120,
-        "on-click": "helvum",
-        "format-icons": ["", "", ""]
-    },
-
-    "custom/media": {
-        "format": "<span font_family='SymbolsNerdFontMono' size='10pt'>{icon}</span> {}",
-        "escape": true,
-        "return-type": "json",
-        "max-length": 40,
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl stop",
-        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+        "format-wifi": "󰘊 {signalStrength}%",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "󰈀 {ifname} via {gwaddr}",
+        "format-disconnected": "󰞃 Disconnected",
     },
 
     "custom/pacman": {
@@ -164,13 +58,57 @@
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
     },
 
-    "custom/weather": {
-        "exec": "get_weather.sh Aalborg",
-        "return-type": "json",
-        "format": "{}",
-        "tooltip": true,
-        "interval": 1800
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "󱛟 {used}",
+        "unit": "GB",
+        "path": "/"
+    },
+
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 40
+    },
+
+    "clock": {
+        "tooltip": false,
+        "timezone": "Europe/Copenhagen",
+        "format": "󰥔 {:%H:%M | %d/%m}"
+    },
+
+    "battery": {
+        "tooltip": false,
+        "full-at": 99,
+        "states": {
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󱐋"]
+    },
+
+    "wireplumber": {
+        "tooltip": false,
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "max-volume": 120,
+        "format-icons": ["", "", ""]
+    },
+
+    "custom/scrot": {
+        "tooltip": false,
+        "on-click": "",
+        "format": "",
     },
 }
-
-
