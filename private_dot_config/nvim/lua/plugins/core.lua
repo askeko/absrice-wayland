@@ -1,12 +1,14 @@
 return {
   {
-    "olimorris/onedarkpro.nvim",
+    "sainnhe/everforest",
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "everforest",
+      -- background = "dark",
+      -- contrast = "hard",
     },
   },
 
@@ -39,6 +41,17 @@ return {
         ["<CR>"] = cmp.config.disable,
       })
     end,
+  },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
+
+  {
+    "PontusHanssen/pddl.vim",
   },
 
   -- {

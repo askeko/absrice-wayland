@@ -12,9 +12,9 @@ export PATH="$PATH:${$(find ~/.local/bin/scripts -type d -printf %p:)%%:}"
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="neovide"
+export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="firefox"
+export BROWSER="microsoft-edge-stable"
 
 # bat (cat) coloring:
 export BAT_THEME="OneHalfDark"
@@ -39,7 +39,7 @@ export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=Hyprland
 
 # qt theme env value
-export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=gtk3
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -209,6 +209,7 @@ ex=:\
 "
 # # If running from tty1 start hyprland
 [ "$(tty)" = "/dev/tty1" ] && exec Hyprland
+# [ "$(tty)" = "/dev/tty1" ] && exec niri-session
 # [ "$(tty)" = "/dev/tty1" ] && exec dwl
 # if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
 #     exec sway

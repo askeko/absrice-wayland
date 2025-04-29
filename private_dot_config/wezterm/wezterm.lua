@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.color_scheme = "tokyonight_storm"
+config.color_scheme = "OneHalfDark"
 config.font = wezterm.font("FiraCode Nerd Font Mono", {
 	weight = "Regular",
 	italic = true,
@@ -20,9 +20,9 @@ config.font = wezterm.font("FiraCode Nerd Font Mono", {
 })
 config.font = wezterm.font_with_fallback({
 	"FiraCode Nerd Font Mono",
-	"JetBrains Mono",
 })
 config.hide_tab_bar_if_only_one_tab = true
+config.window_decorations = "NONE"
 config.window_padding = {
 	left = 25,
 	right = 25,

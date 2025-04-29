@@ -102,7 +102,7 @@ function take_screenshot() {
     if [ "$copy_to_clipboard" == "$copy" ]; then
         filename=$(mktemp /tmp/screenshot.XXXXXX.png)
     else
-        filename=$(xdg-user-dir PICTURES)/$(date +'Screenshot_%Y-%m-%d_%H%M%S.png')
+        filename=$(xdg-user-dir PICTURES)/Screenshots/$(date +'Screenshot_%Y-%m-%d_%H%M%S.png')
     fi
 
     if [ "$geo" == "" ]; then

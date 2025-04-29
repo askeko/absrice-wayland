@@ -1,0 +1,26 @@
+[Default Applications]
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+text/plain=text.desktop;
+application/postscript=pdf.desktop
+application/pdf=pdf.desktop
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+application/rss+xml=rss.desktop
+video/x-matroska=video.desktop
+x-scheme-handler/msteams=teams-for-linux.desktop
+x-scheme-handler/webcal=microsoft-edge.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-T7HE51.desktop
+x-scheme-handler/postman=Postman.desktop
+message/rfc822=userapp-Thunderbird-T7HE51.desktop
+x-scheme-handler/mid=userapp-Thunderbird-T7HE51.desktop
+x-scheme-handler/https=microsoft-edge.desktop
+x-scheme-handler/http=microsoft-edge.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-T7HE51.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-T7HE51.desktop;
+application/x-xopp=com.github.xournalpp.xournalpp.desktop;
+image/jpeg=vimiv.desktop;
