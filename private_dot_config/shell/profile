@@ -17,7 +17,7 @@ export TERMINAL="kitty"
 export BROWSER="microsoft-edge-stable"
 
 # bat (cat) coloring:
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="everforest"
 
 # ~/ Clean-up
 export XDG_CONFIG_HOME="$HOME/.config"

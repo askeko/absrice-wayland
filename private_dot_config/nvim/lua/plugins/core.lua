@@ -12,6 +12,10 @@ return {
     },
   },
 
+  -- fix breaking changes in 2.0.0 by pinning to 1.*
+  { "mason-org/mason.nvim", version = "^1.0.0" },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+
   {
     "ThePrimeagen/harpoon",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -24,6 +28,13 @@ return {
       { "<C-n>",     function() require("harpoon.ui").nav_file(3) end, },
       { "<C-s>",     function() require("harpoon.ui").nav_file(4) end, },
     },
+  },
+
+  {
+    "chomosuke/typst-preview.nvim",
+    lazy = false, -- or ft = 'typst'
+    version = "1.*",
+    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
   },
 
   {
