@@ -69,3 +69,5 @@ eval "$(starship init zsh)"
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
+
+[ -f "/home/askeko/.ghcup/env" ] && . "/home/askeko/.ghcup/env" # ghcup-env

@@ -14,3 +14,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Search terms stays in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+-- Evaluate all code snippets in haskell
+local ht = require("haskell-tools")
+local bufnr = vim.api.nvim_get_current_buf()
+local opts = { noremap = true, silent = true, buffer = bufnr }
+vim.keymap.set("n", "<space>he", ht.lsp.buf_eval_all, opts)
