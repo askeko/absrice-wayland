@@ -12,10 +12,6 @@ return {
     },
   },
 
-  -- fix breaking changes in 2.0.0 by pinning to 1.*
-  { "mason-org/mason.nvim", version = "^1.0.0" },
-  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-
   {
     "ThePrimeagen/harpoon",
     dependencies = { "nvim-lua/plenary.nvim" },
